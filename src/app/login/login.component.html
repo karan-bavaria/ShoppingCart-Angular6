@@ -1,0 +1,30 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-sm-6 offset-sm-3">
+
+            <h3 class="font-weight-bold">ADMIN LOGIN </h3>
+           
+            <button  (click)=" this.router.navigateByUrl('/home');" style="float: right" class="btn btn-dark">HOME</button>
+
+            <div *ngIf="showAlert" class="alert alert-danger" role="alert">
+                {{alert}}
+            </div>
+
+            <br>
+            <div class="form-group">
+                <label for="username">USERNAME</label>
+                <input type='email' [(ngModel)]='username' class="form-control" (click)="showAlert = false">
+            </div>
+
+            <div class="form-group">
+                <label for="username">PASSWORD</label>
+                <input type='password' [(ngModel)]='password' class="form-control" (click)="showAlert = false">
+            </div>
+
+
+            <button (click)="validateUser(username,password)" class="btn btn-primary">LOGIN</button>
+         
+        </div>
+       
+    </div>
+</div>

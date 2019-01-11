@@ -1,0 +1,66 @@
+<h3>ADD PRODUCT</h3>
+<hr>
+<form ngForm #form=ngForm>
+    <div *ngIf="showAlert" class="alert alert-danger" role="alert">
+        {{alert}}
+    </div>
+
+    <div class="form-group">
+        <label for="productId">Product ID</label>
+        <input type="number" [(ngModel)]="newProduct.pId" name="productId" #pId="ngModel" id="productId" class="form-control"
+            pattern="[0-9][0-9][0-9]" required>
+        <div class="alert alert-danger" *ngIf="pId.touched && !pId.valid && !form.submitted">
+            <div *ngIf="pId.errors.required">Product Id is Required.</div>
+            <div *ngIf="pId.errors.pattern">Product Id doesn't match the pattern.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="productName">Product NAME</label>
+        <input [(ngModel)]="newProduct.pName" name="productName" #pName="ngModel" id="productName" class="form-control"
+            required>
+        <div class="alert alert-danger" *ngIf="pName.touched && pName.invalid && !form.submitted">
+            <div *ngIf="pName.errors.required">Product must have a name.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="productPrice">Product PRICE</label>
+        <input type="number" [(ngModel)]="newProduct.pPrice" name="productPrice" #pPrice="ngModel" id="productPrice"
+            class="form-control" pattern="[0-9]+" required>
+        <div class="alert alert-danger" *ngIf="pPrice.touched && pPrice.invalid && !form.submitted">
+            <div *ngIf="pPrice.errors.required">Product must have a price.</div>
+            <div *ngIf="pPrice.errors.pattern">Please enter valid price</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="productImage">Product IMAGE</label>
+        <input [(ngModel)]="newProduct.pImage" name="productImage" #pImage="ngModel" id="productImage" class="form-control"
+            pattern="assets/[a-zA-Z0-9]+(.jpg|.jpeg|.png)" required>
+        <div class="alert alert-danger" *ngIf="pImage.touched && pImage.invalid && !form.submitted">
+            <div *ngIf="pImage.errors.required">Product should have a image</div>
+            <div *ngIf="pImage.errors.pattern">Invalid image</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Product SIZE</label>
+        <div>
+            <label class="radio"><input type="radio" value='yes' name='size' [(ngModel)]='isSize' required>
+                Yes</label><br>
+            <label class="radio"><input type="radio" value='no' name='size' [(ngModel)]='isSize'>
+                No</label>
+        </div>
+    </div>
+
+    <div *ngIf="isSize=='yes'">
+        <label id="selectSize">SELECT SIZE</label>
+        <select id="selectSize" [(ngModel)]="productSize" class="form-control" name="productSize">
+            <option *ngFor="let size of productSizes" [value]=size.pSize>{{size.value}}</option>
+        </select>
+    </div>
+    <hr>
+    <button class="btn btn-primary" [disabled]="!form.form.valid" (click)="saveProduct()">ADD</button>
+
+</form>

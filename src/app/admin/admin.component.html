@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+    <span class="navbar-brand" style="color:white">ADMIN</span>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" (click)="insert='product'">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="insert='transaction'">Transactions</a>
+            </li>
+        </ul>
+        <button style="margin-left: 2rem;" class="btn btn-light" (click)="logout()">LOGOUT</button>
+    </div>
+</nav>
+
+<div class="jumbotron">
+    <div class="container col-sm-6 offset-sm-3">
+        <div *ngIf="insert == 'product'">
+            <app-admin-product></app-admin-product>
+        </div>
+        <div *ngIf="insert == 'transaction'">
+            <app-admin-transaction></app-admin-transaction>
+        </div>
+    </div>
+</div>

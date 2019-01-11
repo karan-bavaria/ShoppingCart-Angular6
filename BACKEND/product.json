@@ -1,0 +1,47 @@
+[
+    {
+        "pId": 100,
+        "pName": "Nike Hoodie",
+        "pPrice": 1000,
+        "pSize": [
+            "Small",
+            "Medium",
+            "Large"
+        ],
+        "pImage": "assets/nike-hoodie.jpeg"
+    },
+    {
+        "pId": 101,
+        "pName": "Adidas Football",
+        "pPrice": 1500,
+        "pImage": "assets/adidas-football.jpg"
+    },
+    {
+        "pId": 102,
+        "pName": "Asics Shoes",
+        "pPrice": 2000,
+        "pSize": [
+            "6",
+            "9",
+            "11"
+        ],
+        "pImage": "assets/asics-shoes.jpg"
+    },
+    {
+        "pId": 111,
+        "pName": "Nike Bag",
+        "pPrice": 1500,
+        "pImage": "assets/nikebag.jpg",
+        "pSize": [
+            "Small",
+            "Medium",
+            "Large"
+        ]
+    },
+    {
+        "pId": 112,
+        "pName": "Nike Bag",
+        "pPrice": 100,
+        "pImage": "assets/nikebag.jpg"
+    }
+]

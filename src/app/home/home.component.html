@@ -1,0 +1,30 @@
+<div class="jumbotron" style="height:0rem;">
+    <h1 style="position:absolute;top: 40px;left: 300px;">WELCOME TO THE REAL CART</h1>
+    <button routerLink="/cart" class="btn btn-primary" style="float:right;width: 200px;">CART</button><br><br>
+    <button routerLink="/login" class="btn btn-dark" style="float:right;width: 200px;">ADMIN</button>
+</div>
+
+<div class="row">
+    <ul *ngFor="let product of products;" id="productList">
+        <li>
+            <div class="card" style="width: 18rem;height: 28rem;">
+                <img [attr.src]="product.pImage" class="card-img-top" alt="...">
+                <div class="card-body" style="position: absolute;bottom: 0;">
+                    <h5 class="card-title">{{product.pName}}</h5>
+                    <p class="card-text">Rs {{product.pPrice}}
+                        <select *ngIf="product.pSize" style="width: 85px;margin-left:130px;" [(ngModel)]="product.selectedSize">
+                             <option *ngFor="let productSizes of product.pSize;">{{productSizes}}</option>
+                        </select>
+                    </p>
+                    <button (click)="addToCart(product)" class="btn btn-dark" style="margin-left:80px;">ADD TO CART</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<style>
+    ul#productList li {
+        display: inline;
+    }
+</style>

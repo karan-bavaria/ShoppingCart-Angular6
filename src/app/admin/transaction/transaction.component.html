@@ -1,0 +1,44 @@
+<table class="table" border='1'>
+    <thead class="thead-dark">
+        <tr>
+            <th rowspan="2">Transaction Id</th>
+            <th colspan="6">Transactions</th>
+            <th rowspan="2">Transaction Total</th>
+        </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Size</th>
+            <th>Qty</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let transaction of Transactions">
+        <tr id="tableRow" *ngFor="let product of transaction.transaction">
+            <td [attr.rowspan]="transaction.transaction.length" *ngIf="transaction.transaction.indexOf(product) == 0">{{transaction.tId}}</td>
+            <td>{{product.pId}}</td>
+            <td>{{product.pName}}</td>
+            <td>{{product.pPrice}}</td>
+            <td>{{product.pSize}}</td>
+            <td>{{product.pQty}}</td>
+            <td>{{product.pTotal}}</td>
+            <td [attr.rowspan]="transaction.transaction.length" *ngIf="transaction.transaction.indexOf(product) == 0">{{transaction.tTotal}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="7">TOTAL</td>
+            <td>{{getTotal()}}</td>
+        </tr>
+    </tfoot>
+</table>
+
+
+<style>
+    th,
+    td {
+        vertical-align: middle;
+        text-align: center;
+    }
+</style>
